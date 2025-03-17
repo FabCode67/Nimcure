@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 export default function RiderSelection({
     setSelectedRide,
 }: {
-    setSelectedRide: any;
+    setSelectedRide: (ride: string) => void;
 }) {
     const [selectedRider, setSelectedRider] = useState<string | null>(null);
     const [activeTab, setActiveTab] = useState<'all' | 'yaba' | 'unassigned' | 'assigned'>('assigned');
@@ -76,7 +76,7 @@ export default function RiderSelection({
                             </div>
                             <div className="flex-1 grid grid-cols-3 gap-4">
                                 <div>
-                                    <div className="text-sm text-gray-500">Dispatch Rider's Name</div>
+                                    <div className="text-sm text-gray-500">{"Dispatch Rider's Name"}</div>
                                     <div className="font-medium">{rider.name}</div>
                                 </div>
                                 <div>

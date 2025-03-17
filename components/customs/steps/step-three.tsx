@@ -25,7 +25,7 @@ const StepThree: React.FC<StepThreeProps> = ({
     const [packageCode, setPackageCode] = useState<string>("");
     const [manualCode, setManualCode] = useState<string>("");
     const [scannerError, setScannerError] = useState<string | null>(null);
-    const [isSimulation, setIsSimulation] = useState<boolean>(true);
+    const [isSimulation, ] = useState<boolean>(true);
 
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const scannerRef = useRef<QrScanner | null>(null);

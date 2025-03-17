@@ -31,7 +31,6 @@ type LoginFormProps = {
 };
 
 export function LoginForm({
-  logo = "/logo.svg",
   onSubmit,
   redirectUrl = "/dashboard",
 }: LoginFormProps) {

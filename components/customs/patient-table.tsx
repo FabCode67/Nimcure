@@ -115,7 +115,7 @@ const PatientManagementPage = () => {
             </SelectTrigger>
             <SelectContent className="border-0 w-40">
               <SelectItem value="Hospital ID">Hospital ID</SelectItem>
-              <SelectItem value="Patient's Name">Patient's Name</SelectItem>
+              <SelectItem value="Patient's Name">{"Patient's Name"}</SelectItem>
               <SelectItem value="Next Delivery Date">Next Delivery Date</SelectItem>
               <SelectItem value="Location">Location</SelectItem>
               <SelectItem value="Status">Status</SelectItem>
@@ -138,7 +138,7 @@ const PatientManagementPage = () => {
           <TableHeader className="border-0">
             <TableRow className="border-0 py-4 h-20">
               <TableHead className="font-medium text-sm py-4">Hospital ID</TableHead>
-              <TableHead className="font-medium text-sm py-4">Patient's Name</TableHead>
+              <TableHead className="font-medium text-sm py-4">{"Patient's Name"}</TableHead>
               <TableHead className="font-medium text-sm py-4">Phone Number</TableHead>
               <TableHead className="font-medium text-sm py-4">Next Delivery Date</TableHead>
               <TableHead className="font-medium text-sm py-4">Location</TableHead>

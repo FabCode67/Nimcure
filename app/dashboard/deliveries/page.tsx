@@ -194,7 +194,7 @@ export default function DeliveryManagement() {
                                         <tr className="text-left text-gray-500 border-b">
                                             <th className="p-4 font-medium">Package Code</th>
                                             <th className="p-4 font-medium">Delivery Date</th>
-                                            <th className="p-4 font-medium">Patient's Name</th>
+                                            <th className="p-4 font-medium">{"Patient's Name"}</th>
                                             <th className="p-4 font-medium">Phone Number</th>
                                             <th className="p-4 font-medium">Location</th>
                                             <th className="p-4"></th>
