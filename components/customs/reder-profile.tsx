@@ -31,55 +31,58 @@ const PatientViewPage = () => {
     });
 
     return (
-        <div className="min-h-screen bg-gray-50 max-w-7xl flex flex-col justify-center mx-auto">
-            <div className="container mx-auto pb-8">
-                <div className="bg-white  shadow-sm overflow-hidden">
-                    <div className="grid grid-cols-1 md:grid-cols-4">
-                        <div className="md:col-span-1 border-r border-gray-100">
-                            <div className="p-4">
+        <div className="min-h-screen w-full px-4 sm:px-6 md:px-8 flex flex-col justify-center mx-auto">
+            <div className="mx-auto pb-8 w-full max-w-7xl">
+                <div className="w-full overflow-hidden">
+                    <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-8 w-full">
+                        {/* Sidebar - Full width on mobile, 20% on desktop */}
+                        <div className="bg-white h-fit w-full lg:w-1/5 border-gray-100 mb-6 lg:mb-0">
+                            <div className="py-3">
                                 <div className="py-3 px-4 text-gray-500 text-sm">Patient</div>
-                                <div className="py-3 px-4 bg-blue-50 text-blue-600 font-medium  flex items-center">
+                                <div className="py-3 px-4 bg-blue-50 text-blue-600 border-r-4 border-r-blue-600 font-medium flex items-center">
                                     Rider&apos;s Profile
                                 </div>
                                 <div className="py-3 px-4 text-gray-500 text-sm">Delivery History</div>
                             </div>
                         </div>
-                        <div className="md:col-span-3 px-12 ">
-                            <div className="flex  justify-between w-full  border-b  border-gray-200">
-                                <div className="flex items-center gap-8 w-[45%]">
+
+                        {/* Main Content - Full width on mobile, 80% on desktop */}
+                        <div className="w-full lg:w-4/5 bg-white py-3">
+                            {/* Tab Header */}
+                            <div className="flex flex-col sm:flex-row justify-between w-full border-b border-gray-200">
+                                <div className="flex px-4 sm:px-8 lg:px-12 items-center gap-4 sm:gap-8 w-full sm:w-auto mb-4 sm:mb-0">
                                     <h3 className="text-gray-700 font-medium">Payment Status</h3>
                                     <div className="bg-green-100 text-green-600 px-4 py-1 text-sm">
                                         Paid
                                     </div>
                                 </div>
-                                <div className="w-[55%]">
-                                    <div className="">
-                                        <div className="flex">
-                                            <button
-                                                className={`py-2 ${activeTab === "patient" ? "text-blue-600 border-b-2 border-blue-600 font-medium" : "text-gray-500"}`}
-                                                onClick={() => setActiveTab("patient")}
-                                            >
-                                                Patient Information
-                                            </button>
-                                            <button
-                                                className={`px-6 py-2 ${activeTab === "delivery" ? "text-blue-600 border-b-2 border-blue-600 font-medium" : "text-gray-500"}`}
-                                                onClick={() => setActiveTab("delivery")}
-                                            >
-                                                Delivery Information
-                                            </button>
-                                        </div>
+                                <div className="w-full sm:w-auto px-4 sm:px-8 lg:px-12 overflow-x-auto">
+                                    <div className="flex gap-6 sm:gap-12 min-w-max">
+                                        <button
+                                            className={`py-2 ${activeTab === "patient" ? "text-blue-600 border-b-4 font-bold border-blue-600 " : "text-gray-500"}`}
+                                            onClick={() => setActiveTab("patient")}
+                                        >
+                                            Patient Information
+                                        </button>
+                                        <button
+                                            className={`py-2 ${activeTab === "delivery" ? "text-blue-600 border-b-4 font-bold border-blue-600" : "text-gray-500"}`}
+                                            onClick={() => setActiveTab("delivery")}
+                                        >
+                                            Delivery Information
+                                        </button>
                                     </div>
                                 </div>
                             </div>
 
+                            {/* Patient Information Tab */}
                             {activeTab === "patient" && (
-                                <div className="flex mt-12">
-                                    <div className="items-center w-[45%]  justify-between">
+                                <div className="flex flex-col lg:flex-row px-4 sm:px-8 lg:px-12 mt-8 lg:mt-12">
+                                    <div className="w-full lg:w-2/5 mb-6 lg:mb-0">
                                         <h2 className="text-xl font-medium text-gray-800">Patient&apos;s Information</h2>
                                         <p className="text-gray-500 text-sm mb-6">Personal information about Patient.</p>
                                         {!isEditing && (
                                             <button
-                                                className="flex items-center gap-2 text-blue-600 border border-blue-600  px-4 py-2 mb-8"
+                                                className="flex items-center gap-2 text-blue-600 border border-blue-600 px-4 py-2 mb-8"
                                                 onClick={() => setIsEditing(true)}
                                             >
                                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -89,106 +92,129 @@ const PatientViewPage = () => {
                                             </button>
                                         )}
                                     </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-[55%]">
-                                        <div className="md:col-span-2">
-                                            <label className="block text-gray-500 text-sm mb-1">Hospital ID</label>
-                                            <Input
-                                                type="text"
-                                                value={patientData.hospitalId}
-                                                onChange={(e) => setPatientData({ ...patientData, hospitalId: e.target.value })}
-                                                disabled={!isEditing}
-                                                className="w-full p-3 border  bg-gray-50 text-gray-800"
-                                            />
-                                        </div>
-
-                                        <div>
-                                            <label className="block text-gray-500 text-sm mb-1">First Name</label>
-                                            <Input
-                                                type="text"
-                                                value={patientData.firstName}
-                                                onChange={(e) => setPatientData({ ...patientData, firstName: e.target.value })}
-                                                disabled={!isEditing}
-                                                className="w-full p-3   bg-gray-50 text-gray-800"
-                                            />
-                                        </div>
-
-                                        <div>
-                                            <label className="block text-gray-500 text-sm mb-1">Last Name</label>
-                                            <Input
-                                                type="text"
-                                                value={patientData.lastName}
-                                                onChange={(e) => setPatientData({ ...patientData, lastName: e.target.value })}
-                                                disabled={!isEditing}
-                                                className="w-full p-3   bg-gray-50 text-gray-800"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="block text-gray-500 text-sm mb-1">Gender</label>
-                                            {isEditing ? (
-                                                <Select
-                                                    defaultValue={patientData.gender}
-                                                    onValueChange={(value) => setPatientData({ ...patientData, gender: value })}
-                                                >
-                                                    <SelectTrigger className="w-full p-3 border-gray-600  border h-[60px] py-7 rounded-none  text-gray-800">
-                                                        <SelectValue placeholder="Select Gender" />
-                                                    </SelectTrigger>
-                                                    <SelectContent>
-                                                        <SelectItem value="Male">Male</SelectItem>
-                                                        <SelectItem value="Female">Female</SelectItem>
-                                                        <SelectItem value="Other">Other</SelectItem>
-                                                    </SelectContent>
-                                                </Select>
-                                            ) : (
-                                                <div className="relative">
+                                    <div className="flex flex-col gap-6 w-full lg:w-3/5">
+                                        {isEditing ? (
+                                            <>
+                                                <div>
+                                                    <label className="block text-gray-500 text-sm mb-1">Hospital ID</label>
                                                     <Input
                                                         type="text"
-                                                        value={patientData.gender}
-                                                        disabled
-                                                        className="w-full p-3   bg-gray-50 text-gray-800"
+                                                        value={patientData.hospitalId}
+                                                        onChange={(e) => setPatientData({ ...patientData, hospitalId: e.target.value })}
+                                                        disabled={!isEditing}
+                                                        className="w-full p-3 border bg-gray-50 text-gray-800"
                                                     />
-                                                    <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M8 10L4 6H12L8 10Z" fill="#6B7280" />
-                                                        </svg>
+                                                </div>
+                                                <div className="flex flex-col sm:flex-row gap-6 w-full">
+                                                    <div className="w-full sm:w-1/2">
+                                                        <label className="block text-gray-500 text-sm mb-1">First Name</label>
+                                                        <Input
+                                                            type="text"
+                                                            value={patientData.firstName}
+                                                            onChange={(e) => setPatientData({ ...patientData, firstName: e.target.value })}
+                                                            disabled={!isEditing}
+                                                            className="w-full p-3 bg-gray-50 text-gray-800"
+                                                        />
+                                                    </div>
+
+                                                    <div className="w-full sm:w-1/2 mt-4 sm:mt-0">
+                                                        <label className="block text-gray-500 text-sm mb-1">Last Name</label>
+                                                        <Input
+                                                            type="text"
+                                                            value={patientData.lastName}
+                                                            onChange={(e) => setPatientData({ ...patientData, lastName: e.target.value })}
+                                                            disabled={!isEditing}
+                                                            className="w-full p-3 bg-gray-50 text-gray-800"
+                                                        />
                                                     </div>
                                                 </div>
-                                            )}
-                                        </div>
+                                                <div className="flex flex-col sm:flex-row gap-6 w-full">
+                                                    <div className="w-full sm:w-1/2">
+                                                        <label className="block text-gray-500 text-sm mb-1">Gender</label>
 
-                                        <div>
-                                            <label className="block text-gray-500 text-sm mb-1">Phone Number</label>
-                                            <Input
-                                                type="text"
-                                                value={patientData.phoneNumber}
-                                                onChange={(e) => setPatientData({ ...patientData, phoneNumber: e.target.value })}
-                                                disabled={!isEditing}
-                                                className="w-full p-3   bg-gray-50 text-gray-800"
-                                            />
-                                        </div>
+                                                        <Select
+                                                            defaultValue={patientData.gender}
+                                                            onValueChange={(value) => setPatientData({ ...patientData, gender: value })}
+                                                        >
+                                                            <SelectTrigger className="w-full p-3 border-gray-600 border h-12 sm:h-[60px] py-2 sm:py-7 rounded-none text-gray-800">
+                                                                <SelectValue placeholder="Select Gender" />
+                                                            </SelectTrigger>
+                                                            <SelectContent>
+                                                                <SelectItem value="Male">Male</SelectItem>
+                                                                <SelectItem value="Female">Female</SelectItem>
+                                                                <SelectItem value="Other">Other</SelectItem>
+                                                            </SelectContent>
+                                                        </Select>
+                                                    </div>
+                                                    <div className="w-full sm:w-1/2 mt-4 sm:mt-0">
+                                                        <label className="block text-gray-500 text-sm mb-1">Phone Number</label>
+                                                        <Input
+                                                            type="text"
+                                                            value={patientData.phoneNumber}
+                                                            onChange={(e) => setPatientData({ ...patientData, phoneNumber: e.target.value })}
+                                                            disabled={!isEditing}
+                                                            className="w-full p-3 bg-gray-50 text-gray-800"
+                                                        />
+                                                    </div>
+                                                </div>
 
-                                        <div className="md:col-span-2">
-                                            <label className="block text-gray-500 text-sm mb-1">Email Address</label>
-                                            <Input
-                                                type="text"
-                                                value={patientData.email}
-                                                onChange={(e) => setPatientData({ ...patientData, email: e.target.value })}
-                                                disabled={!isEditing}
-                                                className="w-full p-3   bg-gray-50 text-gray-800"
-                                            />
-                                        </div>
+                                                <div>
+                                                    <label className="block text-gray-500 text-sm mb-1">Email Address</label>
+                                                    <Input
+                                                        type="text"
+                                                        value={patientData.email}
+                                                        onChange={(e) => setPatientData({ ...patientData, email: e.target.value })}
+                                                        disabled={!isEditing}
+                                                        className="w-full p-3 bg-gray-50 text-gray-800"
+                                                    />
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div className="flex flex-col border-[#808080] bg-[#EFEFEF] py-[6px] px-3 border w-full">
+                                                    <p className="text-gray-500 text-sm mb-1">Hospital ID</p>
+                                                    <p className="text-gray-800 font-medium">{patientData.hospitalId}</p>
+                                                </div>
+                                                <div className="flex flex-col sm:flex-row gap-6">
+                                                    <div className="flex flex-col border-[#808080] bg-[#EFEFEF] py-[6px] px-3 border w-full mb-4 sm:mb-0">
+                                                        <p className="text-gray-500 text-sm mb-1">First Name</p>
+                                                        <p className="text-gray-800 font-medium">{patientData.firstName}</p>
+                                                    </div>
+                                                    <div className="flex flex-col border-[#808080] bg-[#EFEFEF] py-[6px] px-3 border w-full">
+                                                        <p className="text-gray-500 text-sm mb-1">Last Name</p>
+                                                        <p className="text-gray-800 font-medium">{patientData.lastName}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex flex-col sm:flex-row gap-6">
+                                                    <div className="flex flex-col border-[#808080] bg-[#EFEFEF] py-[6px] px-3 border w-full mb-4 sm:mb-0">
+                                                        <p className="text-gray-500 text-sm mb-1">Gender</p>
+                                                        <p className="text-gray-800 font-medium">{patientData.gender}</p>
+                                                    </div>
+                                                    <div className="flex flex-col border-[#808080] bg-[#EFEFEF] py-[6px] px-3 border w-full">
+                                                        <p className="text-gray-500 text-sm mb-1">Phone Number</p>
+                                                        <p className="text-gray-800 font-medium">{patientData.phoneNumber}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex flex-col border-[#808080] bg-[#EFEFEF] py-[6px] px-3 border w-full">
+                                                    <p className="text-gray-500 text-sm mb-1">Email</p>
+                                                    <p className="text-gray-800 font-medium">{patientData.email}</p>
+                                                </div>
+                                            </>
+                                        )}
                                     </div>
                                 </div>
                             )}
 
+                            {/* Delivery Information Tab */}
                             {activeTab === "delivery" && (
-                                <div className="mt-12">
+                                <div className="mt-8 lg:mt-12 px-4 sm:px-8 lg:px-12">
                                     <div className="mb-8">
                                         <h2 className="text-xl font-medium text-gray-800">Delivery Information</h2>
                                         <p className="text-gray-500 text-sm">Information about delivery status</p>
                                     </div>
 
-                                    <div className="flex">
-                                        <div className="w-[45%]">
+                                    <div className="flex flex-col lg:flex-row">
+                                        <div className="w-full lg:w-2/5 mb-6 lg:mb-0">
                                             <button
                                                 className="flex items-center gap-2 text-blue-600 border border-blue-600 px-4 py-2 mb-8"
                                                 onClick={() => setIsEditing(true)}
@@ -199,65 +225,85 @@ const PatientViewPage = () => {
                                                 Edit Delivery Information
                                             </button>
                                         </div>
+                                        {isEditing ? (
+                                            <div className="w-full lg:w-3/5 space-y-6">
+                                                <div>
+                                                    <label className="block text-gray-500 text-sm mb-1">Next Delivery Date</label>
+                                                    <Input
+                                                        type="text"
+                                                        value={deliveryData.nextDeliveryDate}
+                                                        onChange={(e) => setDeliveryData({ ...deliveryData, nextDeliveryDate: e.target.value })}
+                                                        disabled={!isEditing}
+                                                        className="w-full p-3 bg-gray-50 text-gray-800"
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <label className="block text-gray-500 text-sm mb-1">Delivery Area</label>
+                                                    <Input
+                                                        type="text"
+                                                        value={deliveryData.deliveryArea}
+                                                        onChange={(e) => setDeliveryData({ ...deliveryData, deliveryArea: e.target.value })}
+                                                        disabled={!isEditing}
+                                                        className="w-full p-3 bg-gray-50 text-gray-800"
+                                                    />
+                                                </div>
 
-                                        <div className="w-[55%] space-y-6">
-                                            <div>
-                                                <label className="block text-gray-500 text-sm mb-1">Next Delivery Date</label>
-                                                <Input
-                                                    type="text"
-                                                    value={deliveryData.nextDeliveryDate}
-                                                    onChange={(e) => setDeliveryData({ ...deliveryData, nextDeliveryDate: e.target.value })}
-                                                    disabled={!isEditing}
-                                                    className="w-full p-3 bg-gray-50 text-gray-800"
-                                                />
-                                            </div>
+                                                <div>
+                                                    <label className="block text-gray-500 text-sm mb-1">Delivery Address</label>
+                                                    <Input
+                                                        type="text"
+                                                        value={deliveryData.deliveryAddress}
+                                                        onChange={(e) => setDeliveryData({ ...deliveryData, deliveryAddress: e.target.value })}
+                                                        disabled={!isEditing}
+                                                        className="w-full p-3 bg-gray-50 text-gray-800"
+                                                    />
+                                                </div>
 
-                                            <div>
-                                                <label className="block text-gray-500 text-sm mb-1">Delivery Area</label>
-                                                <Input
-                                                    type="text"
-                                                    value={deliveryData.deliveryArea}
-                                                    onChange={(e) => setDeliveryData({ ...deliveryData, deliveryArea: e.target.value })}
-                                                    disabled={!isEditing}
-                                                    className="w-full p-3 bg-gray-50 text-gray-800"
-                                                />
+                                                <div>
+                                                    <label className="block text-gray-500 text-sm mb-1">Payment Status</label>
+                                                    <Input
+                                                        type="text"
+                                                        value={deliveryData.paymentStatus}
+                                                        onChange={(e) => setDeliveryData({ ...deliveryData, paymentStatus: e.target.value })}
+                                                        disabled={!isEditing}
+                                                        className="w-full sm:w-1/2 p-3 bg-gray-50 text-gray-800"
+                                                    />
+                                                </div>
                                             </div>
-
-                                            <div>
-                                                <label className="block text-gray-500 text-sm mb-1">Delivery Address</label>
-                                                <Input
-                                                    type="text"
-                                                    value={deliveryData.deliveryAddress}
-                                                    onChange={(e) => setDeliveryData({ ...deliveryData, deliveryAddress: e.target.value })}
-                                                    disabled={!isEditing}
-                                                    className="w-full p-3 bg-gray-50 text-gray-800"
-                                                />
+                                        ) : (
+                                            <div className="w-full lg:w-3/5 space-y-6">
+                                                <div className="flex flex-col border-[#808080] bg-[#EFEFEF] py-[6px] px-3 border w-full">
+                                                    <p className="text-gray-500 text-sm mb-1">Next Delivery Date</p>
+                                                    <p className="text-gray-800 font-medium">{deliveryData.nextDeliveryDate}</p>
+                                                </div>
+                                                <div className="flex flex-col border-[#808080] bg-[#EFEFEF] py-[6px] px-3 border w-full">
+                                                    <p className="text-gray-500 text-sm mb-1">Delivery Area</p>
+                                                    <p className="text-gray-800 font-medium">{deliveryData.deliveryArea}</p>
+                                                </div>
+                                                <div className="flex flex-col border-[#808080] bg-[#EFEFEF] py-[6px] px-3 border w-full">
+                                                    <p className="text-gray-500 text-sm mb-1">Delivery Address</p>
+                                                    <p className="text-gray-800 font-medium">{deliveryData.deliveryAddress}</p>
+                                                </div>
+                                                <div className="flex flex-col border-[#808080] bg-[#EFEFEF] py-[6px] px-3 border w-full sm:w-1/2">
+                                                    <p className="text-gray-500 text-sm mb-1">Payment Status</p>
+                                                    <p className="text-gray-800 font-medium">{deliveryData.paymentStatus}</p>
+                                                </div>
                                             </div>
-
-                                            <div>
-                                                <label className="block text-gray-500 text-sm mb-1">Payment Status</label>
-                                                <Input
-                                                    type="text"
-                                                    value={deliveryData.paymentStatus}
-                                                    onChange={(e) => setDeliveryData({ ...deliveryData, paymentStatus: e.target.value })}
-                                                    disabled={!isEditing}
-                                                    className="w-full p-3 bg-gray-50 text-gray-800"
-                                                />
-                                            </div>
-                                        </div>
+                                        )}
                                     </div>
                                 </div>
                             )}
-                            {isEditing && (
-                                <div className="flex justify-end mt-8">
-                                    <Button
-                                        className="bg-blue-100 hover:bg-blue-200 text-blue-600 px-6 py-3"
-                                        onClick={() => setIsEditing(false)}
-                                    >
-                                        Save Changes
-                                    </Button>
-                                </div>
-                            )}
+
+                            {/* Save Button */}
+                            <div className="flex px-4 sm:px-12 lg:px-24 justify-end border-t border-t-gray-400 mt-8">
+                                <Button
+                                    className="bg-blue-100 mt-2 hover:bg-blue-200 h-12 sm:h-[60px] rounded-none text-blue-600 px-6 py-3"
+                                    onClick={() => setIsEditing(false)}
+                                    disabled={!isEditing}
+                                >
+                                    Save Changes
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -32,7 +32,7 @@ type LoginFormProps = {
 
 export function LoginForm({
   onSubmit,
-  redirectUrl = "/dashboard",
+  redirectUrl = "/dashboard/patients",
 }: LoginFormProps) {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
@@ -57,12 +57,9 @@ export function LoginForm({
 
   return (
     <div className="w-full min-h-screen flex flex-col">
-      {/* Logo Div */}
-      <div className="flex justify-center p-4 mt-8">
+      <div className="flex  justify-center p-4 mt-8">
         <Image src="/uplogo.png" alt="Logo" width={58} height={58} priority />
       </div>
-
-      {/* Form Div - Centered */}
       <div className="flex-1 flex items-center justify-center w-[340px] mx-auto">
         <div className="w-full">
           <h1 className="text-xl font-medium text-center mb-6">
@@ -137,15 +134,13 @@ export function LoginForm({
                 </Link>
               </div>
 
-              <Button type="submit" className="w-full h-12 mt-12 rounded bg-blue-600 text-white hover:bg-blue-700">
+              <Button type="submit" className="w-full h-12 mt-12 rounded cursor-pointer bg-blue-600 text-white hover:bg-blue-700">
                 Login
               </Button>
             </form>
           </Form>
         </div>
       </div>
-
-      {/* Footer Div - Fixed at Bottom */}
       <div className="text-xs text-center flex justify-center mx-auto text-gray-500 mt-auto p-4">
         <p>Powered by</p>
         <div className="flex justify-center ml-3">
