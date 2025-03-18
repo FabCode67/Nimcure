@@ -19,7 +19,7 @@ const patient: PatientData = {
 
 const PatientInfoCard = () => {
     return (
-        <Card className="mb-8 w-[35%] border-0 shadow-none bg-white">
+        <Card className="mb-8 lg:w-[35%] w-full border-0 shadow-none bg-white">
             <h2 className="text-lg font-medium mb-4">Patient Information</h2>
 
             <div className="grid grid-cols-1 gap-6">

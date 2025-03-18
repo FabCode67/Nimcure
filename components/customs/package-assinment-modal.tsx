@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 interface PackageAssignmentModalProps {
     isOpen: boolean;
@@ -16,14 +17,22 @@ const PackageAssignmentModal: React.FC<PackageAssignmentModalProps> = ({
     packageId,
     patientName
 }) => {
+
+    
+    const route = useRouter();
+    const handleAssignPackage = () => {
+        route.push(`/dashboard/deliveries`);
+    }
+
     if (!isOpen) return null;
+
 
     return (
         <div
             className="fixed inset-0 flex items-center justify-center z-50"
             style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
         >
-            <div className="bg-white p-8 rounded-none max-w-md w-full">
+            <div className="bg-white p-8 rounded-none md:max-w-md w-[95%] md:w-full">
                 <h2 className="text-xl font-semibold mb-6">Assign Package {packageId}</h2>
 
                 <p className="mb-4">
@@ -39,7 +48,12 @@ const PackageAssignmentModal: React.FC<PackageAssignmentModalProps> = ({
                     </Button>
 
                     <Button
-                        onClick={onConfirm}
+                        onClick={
+                            () => {
+                                onConfirm();
+                                handleAssignPackage();
+                            }
+                        }
                         className="flex-1 bg-[#1F5AF4] hover:bg-blue-600 text-white py-2 h-12 rounded-none"
                     >
                         Yes, Assign Package

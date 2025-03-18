@@ -25,7 +25,7 @@ const StepThree: React.FC<StepThreeProps> = ({
     const [packageCode, setPackageCode] = useState<string>("");
     const [manualCode, setManualCode] = useState<string>("");
     const [scannerError, setScannerError] = useState<string | null>(null);
-    const [isSimulation, ] = useState<boolean>(true);
+    const [isSimulation,] = useState<boolean>(true);
 
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const scannerRef = useRef<QrScanner | null>(null);
@@ -135,8 +135,8 @@ const StepThree: React.FC<StepThreeProps> = ({
                         <p className="text-center text-muted-foreground mb-8">
                             Scan a package to assign it to {patientName}
                         </p>
-                        <div className="flex flex-row w-full gap-12 mx-auto self-center justify-center items-start mb-8">
-                            <div className="flex flex-col items-center">
+                        <div className="flex  lg:flex-row flex-col w-full gap-12 mx-auto self-center justify-center items-start mb-8">
+                            <div className="flex flex-col mx-auto items-center">
                                 <div className="mb-6 w-[187px] h-[187px] flex items-center justify-center relative">
                                     <div className="absolute top-0 left-0 w-12 h-12 border-t-4 border-l-4 border-blue-500"></div>
                                     <div className="absolute top-0 right-0 w-12 h-12 border-t-4 border-r-4 border-blue-500"></div>
@@ -166,11 +166,11 @@ const StepThree: React.FC<StepThreeProps> = ({
                                     <p className="text-sm text-red-500 mt-2">{scannerError}</p>
                                 )}
                             </div>
-                            <div className="flex flex-col items-center justify-center h-[187px]">
+                            <div className="flex flex-col items-center m-auto justify-center lg:h-[187px] h-[20px]">
                                 <div className="text-muted-foreground">OR</div>
                             </div>
 
-                            <div className="flex flex-col items-center justify-center">
+                            <div className="flex flex-col mx-auto items-center justify-center">
                                 <div className="h-[187px] mb-6">
                                     <p className="text-sm text-muted-foreground mb-2">Trouble scanning QR Code?</p>
                                     <p className="text-sm text-muted-foreground mb-4">Enter manually</p>
@@ -244,27 +244,17 @@ const StepThree: React.FC<StepThreeProps> = ({
                             <p className="text-sm text-muted-foreground mb-2">Package Code</p>
                             <div className="flex items-center justify-between bg-muted p-4 rounded">
                                 <span className="font-medium text-lg">{packageCode}</span>
-                                <Button
-                                    onClick={() => removePackage(packageCode)}
-                                    variant="ghost"
-                                    className="text-red-500 hover:text-red-700 hover:bg-red-50 p-2 h-8"
-                                >
-                                    <X size={16} className="mr-1" /> Remove
-                                </Button>
+
                             </div>
-                        </div>
-
-                        <p className="text-green-600 font-medium mb-4">Package successfully scanned</p>
-
-                        <div className="flex justify-between w-full max-w-md mt-4">
                             <Button
-                                onClick={resetScanner}
-                                variant="outline"
-                                className="border-gray-300 text-gray-700"
+                                onClick={() => removePackage(packageCode)}
+                                variant="ghost"
+                                className="text-red-500 justify-end flex ml-auto hover:text-red-700 hover:bg-red-50 p-2 h-8"
                             >
-                                Back
+                                <X size={16} className="mr-1" /> Remove
                             </Button>
                         </div>
+                        <p className="text-green-600 font-medium mb-4">Package successfully scanned</p>
                     </div>
                 )}
             </CardContent>

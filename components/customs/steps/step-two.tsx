@@ -26,7 +26,7 @@ export default function RiderSelection({
     };
 
     return (
-        <div className="w-full max-w-3xl mx-auto p-4">
+        <div className="w-full md:text-base text-xs max-w-3xl mx-auto md:p-4 p-1">
             <div className="flex mb-4 border-b">
                 <button
                     className={`px-4 py-2 ${activeTab === 'all' ? 'border-blue-500 border-b-2 text-blue-500' : 'text-gray-500'}`}
