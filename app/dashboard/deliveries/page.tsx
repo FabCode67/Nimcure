@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import { Search, Menu } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-
 import deliveries from '@/data/deliveries'
 import DashboardLayout from '@/components/layout/DashboardLayout'
 import Toast from '@/components/customs/steps/toast'
@@ -122,8 +121,6 @@ export default function DeliveryManagement() {
                             />
                         </div>
                     </div>
-
-                    {/* Desktop sorting and search */}
                     <div className="hidden md:flex md:w-4/5 md:ml-auto md:pl-6 lg:pl-12 justify-between items-center mb-6">
                         <SortSelector sortOrder={sortOrder} onSortChange={handleSortChange} />
                         <div>
@@ -141,14 +138,11 @@ export default function DeliveryManagement() {
                             </div>
                         </div>
                     </div>
-
-                    {/* Mobile sorting controls */}
                     <div className="md:hidden flex justify-between items-center mb-4">
                         <SortSelector sortOrder={sortOrder} onSortChange={handleSortChange} isMobile={true} />
                     </div>
 
                     <div className="rounded-lg gap-12 flex flex-col md:flex-row w-full">
-                        {/* Mobile sidebar */}
                         <MobileSidebar 
                             isOpen={sidebarOpen}
                             toggleSidebar={toggleSidebar}
@@ -158,8 +152,6 @@ export default function DeliveryManagement() {
                             setActiveFilter={setActiveFilter}
                             getCountForStatus={getCountForStatus}
                         />
-                        
-                        {/* Desktop sidebar */}
                         <div className="hidden md:block w-1/5">
                             <DeliveryFilters 
                                 activeTab={activeTab}
@@ -169,15 +161,10 @@ export default function DeliveryManagement() {
                                 getCountForStatus={getCountForStatus}
                             />
                         </div>
-
-                        {/* Table container */}
                         <div className="w-full md:w-4/5 overflow-x-auto">
-                            {/* Desktop table */}
                             <DeliveryTable 
                                 filteredDeliveries={filteredDeliveries}
                             />
-
-                            {/* Mobile card view */}
                             <MobileDeliveryCards 
                                 filteredDeliveries={filteredDeliveries}
                                 expandedRows={expandedRows}

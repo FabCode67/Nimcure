@@ -29,31 +29,31 @@ export default function RiderSelection({
         <div className="w-full md:text-base text-xs max-w-3xl mx-auto md:p-4 p-1">
             <div className="flex mb-4 border-b">
                 <button
-                    className={`px-4 py-2 ${activeTab === 'all' ? 'border-blue-500 border-b-2 text-blue-500' : 'text-gray-500'}`}
+                    className={`px-4 py-2 ${activeTab === 'all' ? 'border-blue-500 border-2 font-bold text-blue-700' : 'text-gray-500'}`}
                     onClick={() => handleTabChange('all')}
                 >
                     All ({riders.length})
                 </button>
                 <button
-                    className={`px-4 py-2 ${activeTab === 'yaba' ? 'border-blue-500 border-b-2 text-blue-500' : 'text-gray-500'}`}
+                    className={`px-4 py-2 ${activeTab === 'yaba' ? 'border-blue-500 border-2 font-bold text-blue-700' : 'text-gray-500'}`}
                     onClick={() => handleTabChange('yaba')}
                 >
                     Yaba Riders ({riders.filter(r => r.deliveryArea === 'Yaba').length})
                 </button>
                 <button
-                    className={`px-4 py-2 ${activeTab === 'unassigned' ? 'border-blue-500 border-b-2 text-blue-500' : 'text-gray-500'}`}
+                    className={`px-4 py-2 ${activeTab === 'unassigned' ? 'border-blue-500 border-2 font-bold text-blue-700' : 'text-gray-500'}`}
                     onClick={() => handleTabChange('unassigned')}
                 >
                     Unassigned Riders ({riders.filter(r => r.deliveries === 0).length})
                 </button>
                 <button
-                    className={`px-4 py-2 ${activeTab === 'assigned' ? 'border-blue-500 border-b-2 text-blue-500' : 'text-gray-500'}`}
+                    className={`px-4 py-2 ${activeTab === 'assigned' ? 'border-blue-500 border-2 font-bold text-blue-700' : 'text-gray-500'}`}
                     onClick={() => handleTabChange('assigned')}
                 >
                     Assigned Riders ({riders.filter(r => r.deliveries > 0).length})
                 </button>
             </div>
-            <div className="border rounded-md overflow-hidden">
+            <div className=" rounded-none overflow-hidden">
                 <div className="max-h-96 overflow-y-auto custom-scrollbar">
                     {filteredRiders.map((rider) => (
                         <div
@@ -65,7 +65,7 @@ export default function RiderSelection({
                             }
                             }
                         >
-                            <div className="flex-shrink-0 mr-4">
+                            <div className="flex-shrink-0  mr-4">
                                 <div className={`w-5 h-5 rounded-full border ${selectedRider === rider.id ? 'border-blue-500 bg-blue-500' : 'border-gray-300'}`}>
                                     {selectedRider === rider.id && (
                                         <div className="flex items-center justify-center h-full">

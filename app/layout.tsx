@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nimcure webb app",
+  title: "Nimcure web app",
   description: "Nimcure is a Drug prescription delivery service in a medical facility that allows pharmacy attendants to initiate a delivery for a new prescription or renew prescriptions for patients.",
 };
 

@@ -60,7 +60,7 @@ export default function AssignPackageToPatient() {
                                 className="flex items-center gap-2 cursor-pointer"
                                 onClick={() => handleStepClick(1)}
                             >
-                                <div className={`md:w-6 w-4 md:h-6 h-4 md:text-base text-sm rounded-full flex items-center justify-center ${step > 1 ? "bg-green-500 text-white" :
+                                <div className={`md:w-6 w-4 md:h-6 h-4 md:text-base text-sm rounded-full flex items-center justify-center ${step > 1 ? "bg-[#01A85A] text-white" :
                                     step === 1 ? "border-2 border-blue-500" : "border-2 border-gray-300"
                                     }`}>
                                     {step > 1 ? (
@@ -69,16 +69,16 @@ export default function AssignPackageToPatient() {
                                         <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                                     ) : null}
                                 </div>
-                                <span className={`font-medium md:text-base text-sm ${step > 1 ? "text-green-500" :
+                                <span className={`font-medium md:text-base text-sm ${step > 1 ? "text-[#01A85A]" :
                                     step === 1 ? "text-blue-500" : "text-gray-500"
                                     }`}>Set Drug Cycle/Length</span>
-                                {step === 1 && <div className="h-1 w-full bg-blue-500 mt-2 absolute top-14 left-0"></div>}
+                                {step === 1 && <></>}
                             </div>
                             <div
                                 className="flex items-center gap-2 cursor-pointer"
                                 onClick={() => handleStepClick(2)}
                             >
-                                <div className={`md:w-6 w-4 md:h-6 h-4 md:text-base text-sm rounded-full flex items-center justify-center ${step > 2 ? "bg-green-500 text-white" :
+                                <div className={`md:w-6 w-4 md:h-6 h-4 md:text-base text-sm rounded-full flex items-center justify-center ${step > 2 ? "bg-[#01A85A] text-white" :
                                     step === 2 ? "border-2 border-blue-500" : "border-2 border-gray-300"
                                     }`}>
                                     {step > 2 ? (
@@ -87,16 +87,16 @@ export default function AssignPackageToPatient() {
                                         <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                                     ) : null}
                                 </div>
-                                <span className={`font-medium md:text-base text-sm ${step > 2 ? "text-green-500" :
+                                <span className={`font-medium md:text-base text-sm ${step > 2 ? "text-[#01A85A]" :
                                     step === 2 ? "text-blue-500 " : "text-gray-500"
                                     }`}>Assign Dispatch Rider</span>
-                                {step === 2 && <div className="h-1 w-full bg-blue-500 mt-2 absolute top-14 left-0"></div>}
+                                {step === 2 && <></>}
                             </div>
                             <div
                                 className="flex items-center gap-2 cursor-pointer"
                                 onClick={() => handleStepClick(3)}
                             >
-                                <div className={`md:w-6 w-4 md:h-6 h-4 md:text-base text-sm rounded-full flex items-center justify-center ${step > 3 ? "bg-green-500 text-white" :
+                                <div className={`md:w-6 w-4 md:h-6 h-4 md:text-base text-sm rounded-full flex items-center justify-center ${step > 3 ? "bg-[#01A85A] text-white" :
                                     step === 3 ? "border-2 border-blue-500" : "border-2 border-gray-300"
                                     }`}>
                                     {step > 3 ? (
@@ -105,10 +105,10 @@ export default function AssignPackageToPatient() {
                                         <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                                     ) : null}
                                 </div>
-                                <span className={`font-medium md:text-base text-sm ${step > 3 ? "text-green-500" :
+                                <span className={`font-medium md:text-base text-sm ${step > 3 ? "text-[#01A85A]" :
                                     step === 3 ? "text-blue-500" : "text-gray-500"
                                     }`}>Scan Package</span>
-                                {step === 3 && <div className="h-1 w-full bg-blue-500 mt-2 absolute top-14 left-0"></div>}
+                                {step === 3 && <></>}
                             </div>
                         </div>
 
