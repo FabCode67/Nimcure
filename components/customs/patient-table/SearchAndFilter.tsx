@@ -26,8 +26,8 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
 }) => {
   return (
     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-      <div className="flex items-center space-x-2 w-full sm:w-auto">
-        <span className="text-sm font-medium">Sort by:</span>
+      <div className="flex items-center space-x-2 md:w-[17%] w-[60%]">
+        <span className="text-sm w-full font-medium">Sort by:</span>
         <Select value={sortBy} onValueChange={setSortBy}>
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Sort by" />
