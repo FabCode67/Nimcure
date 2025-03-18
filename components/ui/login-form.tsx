@@ -62,7 +62,7 @@ export function LoginForm({
       </div>
       <div className="flex-1 flex items-center justify-center w-[340px] mx-auto">
         <div className="w-full">
-          <h1 className="text-xl font-medium text-center mb-6">
+          <h1 className="text-xl font-medium text-start mb-6">
             Sign in to continue
           </h1>
 
