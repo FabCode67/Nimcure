@@ -58,7 +58,7 @@ export default function RiderSelection({
                     {filteredRiders.map((rider) => (
                         <div
                             key={rider.id}
-                            className={`flex items-center p-3 border-b ${selectedRider === rider.id ? 'bg-blue-100' : 'hover:bg-gray-50'}`}
+                            className={`flex items-center p-3 border-b ${selectedRider === rider.id ? 'bg-blue-100 border border-blue-600' : 'hover:bg-gray-50'}`}
                             onClick={() => {
                                 handleSelectRider(rider.id)
                                 setSelectedRide("initial")

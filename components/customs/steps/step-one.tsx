@@ -6,11 +6,11 @@ const StepOne = (
 ) => {
 
     return (
-        <div className="bg-white rounded-md overflow-hidden border mt-4">
+        <div className="bg-white overflow-hidden mt-4">
             <div className="p-4">
                 <p className="text-gray-700 mb-4">Oluwaseun Aregbesola has a drug cycle of two(2) months</p>
                 <div
-                    className={`border rounded-md mb-4 overflow-hidden ${cycleOption === 'initial' ? 'border-blue-500' : ''}`}
+                    className={`border mb-4 overflow-hidden ${cycleOption === 'initial' ? 'border-blue-500' : ''}`}
                     onClick={() => {
                         setCycleOption('initial');
                         setNewCycleSelected(false);

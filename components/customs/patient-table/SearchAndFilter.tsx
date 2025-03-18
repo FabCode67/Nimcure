@@ -29,7 +29,7 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
       <div className="flex items-center space-x-2 w-full sm:w-auto">
         <span className="text-sm font-medium">Sort by:</span>
         <Select value={sortBy} onValueChange={setSortBy}>
-          <SelectTrigger className="w-full sm:w-40">
+          <SelectTrigger className="w-full">
             <SelectValue placeholder="Sort by" />
           </SelectTrigger>
           <SelectContent className="border-0 w-full sm:w-40">

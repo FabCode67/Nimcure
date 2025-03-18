@@ -102,7 +102,6 @@ export default function DeliveryManagement() {
                 )}
 
                 <div className="px-2 md:px-4 py-4 md:py-6 flex flex-col justify-center mx-auto max-w-7xl">
-                    {/* Mobile sidebar toggle */}
                     <div className="md:hidden flex justify-between items-center mb-4">
                         <Button variant="outline" onClick={toggleSidebar} className="flex items-center">
                             <Menu className="h-5 w-5 mr-2" />

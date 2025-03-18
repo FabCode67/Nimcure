@@ -8,7 +8,7 @@ export default function MobileSidebar({ isOpen, toggleSidebar, activeTab, setAct
 ) {
     return (
         <>
-            <div className={`md:hidden fixed inset-y-0 left-0 z-40 w-64 bg-white transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out overflow-y-auto`}>
+            <div className={`md:hidden  fixed inset-y-0 left-0 z-40 w-64 bg-white transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out overflow-y-auto`}>
                 <div className="p-4 border-b">
                     <div className="flex justify-between items-center">
                         <h2 className="font-semibold">Filters</h2>
@@ -84,7 +84,7 @@ export default function MobileSidebar({ isOpen, toggleSidebar, activeTab, setAct
             </div>
             {isOpen && (
                 <div
-                    className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-30"
+                    className="md:hidden fixed inset-0 bg-white backdrop:blur-2xl blur-2xl bg-opacity-50 z-30"
                     onClick={toggleSidebar}
                 />
             )}
